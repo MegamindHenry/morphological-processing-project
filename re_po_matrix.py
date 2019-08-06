@@ -249,15 +249,27 @@ for i, x in enumerate(re_po_data):
         result[i][re2int[x['Com2']]] = 1
 
 
-header_re_po = ',Cha'
+header_re_po = ''
 for i in range(num_re_po):
     header_re_po += ',{}'.format(int2re[i])
 
 
 np.savetxt('data/chars_re_po.csv',
            result.astype(int), fmt='%i' , delimiter=',',
-           header=header_re_po, encoding='utf8', comments='')
+           encoding='utf8', comments='')
 
 
-re_po_file = open('data/chars_re_po.csv', 'w+', encoding='utf8')
+re_po_file = open('data/chars_re_po.csv', 'r',
+                  encoding='utf8')
+re_po_clean_file = open('data/chars_re_po_matrix.csv',
+                        'w+', encoding='utf8')
+
+re_po_clean_file.write(header_re_po)
+
+for i, line in enumerate(re_po_file):
+    line_new = re_po_data[i]['Cha'] + ',' + line
+    re_po_clean_file.write(line_new)
+
+re_po_file.close()
+re_po_clean_file.close()
 
