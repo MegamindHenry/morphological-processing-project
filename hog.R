@@ -78,5 +78,12 @@ Sbig_clean_temp <- Sbig_temp %>%
 Sbig_clean_temp[1:30, 1:3]
 Sbig_clean <- Sbig_clean_temp[,-1]
 
+ch_hog_clean_matrix <- as.matrix(ch_hog_clean)
+ch_re_po_clean_matrix <- as.matrix(ch_re_po_clean)
+Sbig_clean_matrix <- as.matrix(Sbig_clean)
 
-Hcomp = ch_hog_clean %*% ginv(t(ch_hog_clean)%*%ch_hog_clean)%*%t(ch_hog_clean)
+save(ch_hog_clean_matrix, file = 'ch_hog_clean_matrix.rda')
+save(ch_re_po_clean_matrix, file = 'ch_re_po_clean_matrix.rda')
+save(Sbig_clean_matrix, file = 'Sbig_clean_matrix.rda')
+
+Hcomp = ch_hog_clean_matrix %*% ginv(t(ch_hog_clean_matrix)%*%ch_hog_clean_matrix)%*%t(ch_hog_clean_matrix)
