@@ -1,3 +1,6 @@
+"""
+Matches characters in chars.txt to their bitmap filenames.
+"""
 import csv
 
 char = []
@@ -7,7 +10,7 @@ with open('data/chars.txt', 'r', encoding='utf8') as fp:
         line = line.strip()
         c = {
             'char': line,
-            'pic': str(i+1) + 'pic'
+            'pic': str(i+1) + 'pic'  # index start from 0
         }
         char.append(c)
 
