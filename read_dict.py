@@ -37,7 +37,7 @@ with open('dict.csv', 'w+', encoding='utf8') as f:
                                            'Type'])
     f.write('{}, {}, {}, {}, {}, {},'
              ' {}, {}, {}, {}, {}, {},'
-             '{}, {}, {}, {}, {}, {}'
+             '{}, {}, {}, {}, {}, {},'
              '{}\n'.format('Cha', 'SeR', 'SeP', 'PhR', 'PhP', 'xP',
                            'ToS', 'ReS', 'SeS', 'PhS', 'NoC', 'Com1',
                            'Com2', 'Com3', 'Com4', 'Com5', 'Py', 'Str', 'Type'))
@@ -45,7 +45,7 @@ with open('dict.csv', 'w+', encoding='utf8') as f:
     for x in data:
         f.write('{}, {}, {}, {}, {}, {},'
                  ' {}, {}, {}, {}, {}, {},'
-                 '{}, {}, {}, {}, {}, {}'
+                 '{}, {}, {}, {}, {}, {},'
                  '{}\n'.format(x['Cha'], x['SeR'], x['SeP'], x['PhR'], x['PhP'], x['xP'],
                                x['ToS'], x['ReS'], x['SeS'], x['PhS'], x['NoC'], x['Com1'],
                                x['Com2'], x['Com3'], x['Com4'], x['Com5'], x['Py'], x['Str'], x['Type']))
