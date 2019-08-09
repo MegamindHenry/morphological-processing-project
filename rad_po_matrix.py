@@ -255,6 +255,7 @@ for i, x in enumerate(rad_po_data):
 header_rad_po = ''
 for i in range(num_rad_po):
     header_rad_po += ',{}'.format(int2ra[i])
+header_rad_po += '\n'
 
 
 np.savetxt('data/chars_rad_po.csv',
