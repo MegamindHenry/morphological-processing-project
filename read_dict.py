@@ -1,7 +1,8 @@
 import csv
 
 data = []
-with open('data/char_dict2.1.txt', 'r', encoding='utf8') as fp:
+# with open('data/char_dict2.1.txt', 'r', encoding='utf8') as fp:
+with open('data/data_sg.txt', 'r', encoding='utf8') as fp:
     header = fp.readline().strip().split()
     print(header)
 
@@ -15,7 +16,7 @@ with open('data/char_dict2.1.txt', 'r', encoding='utf8') as fp:
 
 print(data)
 
-with open('dict.csv', 'w+', encoding='utf8') as f:
+with open('sg.csv', 'w+', encoding='utf8') as f:
     writer = csv.DictWriter(f, fieldnames=['Cha',
                                            'SeR',
                                            'SeP',

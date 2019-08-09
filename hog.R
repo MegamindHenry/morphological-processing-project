@@ -19,7 +19,7 @@ cues = get_graphic_cues(allwords=wlist,
 write.csv(cues,'data/chars_hog.csv')
 
 ch2 = read_delim('data/char_dict2.1.txt', col_names = TRUE, delim = ' ')
-
+str(ch2)
 unique(ch2$Str)
 
 head(ch2$Cha[ch2$Str == 'LRB'])
