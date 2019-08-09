@@ -243,6 +243,8 @@ int2re = dict({i: x for i, x in enumerate(re_po)})
 
 result = np.zeros((num_data, num_re_po), dtype=int)
 
+print(result.shape)
+
 for i, x in enumerate(re_po_data):
     result[i][re2int[x['Com1']]] = 1
     if x['Com2'] != 'NA':
@@ -252,6 +254,7 @@ for i, x in enumerate(re_po_data):
 header_re_po = ''
 for i in range(num_re_po):
     header_re_po += ',{}'.format(int2re[i])
+header_re_po = '\n'
 
 
 np.savetxt('data/chars_re_po.csv',
