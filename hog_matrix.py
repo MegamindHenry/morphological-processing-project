@@ -34,8 +34,8 @@ header += '\n'
 
 hog_clean_file.write(header)
 
-for i, line in enumerate(hog):
-    line_new = data[i]['Cha'] + ', ' + line
+for i, line in enumerate(hog_file):
+    line_new = data[i]['Cha'] + ',' + line
     hog_clean_file.write(line_new)
 
 hog_file.close()
