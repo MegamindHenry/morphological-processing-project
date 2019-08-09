@@ -110,3 +110,5 @@ data/*
 warning/*
 
 play.py
+*.csv
+*.txt
