@@ -99,6 +99,10 @@ ch_hog_clean_matrix <- as.matrix(ch_hog_clean)
 ch_rad_po_clean_matrix <- as.matrix(ch_rad_po_clean)
 Sbig_clean_matrix <- as.matrix(Sbig_clean)
 
+ch_hog_clean_matrix_removed <- ch_hog_clean_matrix[-c(1314),]
+ch_rad_po_clean_matrix_removed <- ch_rad_po_clean_matrix[-c(1314),]
+Sbig_clean_matrix_removed <- Sbig_clean_matrix[-c(1314),]
+
 save(ch_hog_clean_matrix, file = 'ch_hog_clean_matrix.Rda')
 save(ch_rad_po_clean_matrix, file = 'ch_rad_po_clean_matrix.Rda')
 save(Sbig_clean_matrix, file = 'Sbig_clean_matrix.Rda')
@@ -106,6 +110,11 @@ write.table(ch_hog_clean_matrix, file = 'hog_matrix.csv', quote = FALSE, sep = "
 write.table(ch_rad_po_clean_matrix, file = 'rad_matrix.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
 write.table(Sbig_clean_matrix, file = 'Sbig_matrix.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
 
+
+
+write.table(ch_hog_clean_matrix_removed, file = 'hog_matrix_removed.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
+write.table(ch_rad_po_clean_matrix_removed, file = 'rad_matrix_removed.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
+write.table(Sbig_clean_matrix_removed, file = 'Sbig_matrix_removed.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
 Hcomp = ch_hog_clean_matrix %*% ginv(t(ch_hog_clean_matrix)%*%ch_hog_clean_matrix)%*%t(ch_hog_clean_matrix)
 
 
