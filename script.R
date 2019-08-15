@@ -12,12 +12,15 @@ library('MASS')
 # file2: dict.csv----------------dict created by read_dict.py
 # file3: Sbig.rda------------------------semantic matrix
 
+# character-bitmap filename mapping
 c2p = read_csv('data/chars_pic.csv')
-chars <- c2p$char # 4895 chars
+head(c2p)
+str(c2p)
+# chars <- c2p$char # 4895 chars
 
 dict = read_csv('data/dict.csv', col_names = TRUE)
-unique(dict$Str)
-dchar <- dict$Cha  # 5807 characters
+unique(dict$Str) # 6 unique structures 
+# dchar <- dict$Cha  # 5807 characters
 one <- dict[is.na(dict$Com2),] # 408 characters with 1 component
 one_problematic <- one[one$Str != 'SG',]  # with 1 component but not SG structure
 one_clean <- setdiff(one, one_problematic)
@@ -39,13 +42,7 @@ distinct(one_new)
 dict_new <- union(one_new, two_clean)  # 5211 characters!
 save(dict_new, file = 'dict_new.Rda')
 write.csv(dict_new, file = 'data/dict_new.csv', fileEncoding='UTF-8', row.names = FALSE, quote = FALSE)
-
-
-Sbig <- load('Sbig.rda')
-names <- rownames(Sbig) # set of 4708 characters in semantic matrix
-# length(unique(names))==length(names)
-
-
+dict = read_csv('data/dict_new.csv', col_names = TRUE)
 
 wlist = c2p$char
 flist = c2p$pic
@@ -53,8 +50,7 @@ cues = get_graphic_cues(allwords=wlist,
                         fileNames=flist,
                         folder='data/files_char',
                         ext=".png")
-
-write.csv(cues,'data/chars_hog.csv')
+write.csv(cues,file = 'data/chars_hog.csv')
 
 rad_po <- read.csv('data/rad_po_data.csv')
 ch_rad_po = read.csv('data/chars_rad_po_matrix.csv', header = TRUE, row.names = 1)
@@ -80,7 +76,7 @@ Cha_common = Reduce(intersect, list(ch_rad_po_temp$Cha, ch_hog_temp$Cha,Sbig_tem
 ch_rad_po_clean_temp <- ch_rad_po_temp %>%
   filter(Cha %in% Cha_common) %>%
   arrange(Cha)
-ch_rad_po_clean_temp[1:30,1:3]
+  ch_rad_po_clean_temp[1:30,1:3]
 ch_rad_po_clean <- ch_rad_po_clean_temp[,-1]
 
 ch_hog_clean_temp <- ch_hog_temp %>%
@@ -99,9 +95,9 @@ ch_hog_clean_matrix <- as.matrix(ch_hog_clean)
 ch_rad_po_clean_matrix <- as.matrix(ch_rad_po_clean)
 Sbig_clean_matrix <- as.matrix(Sbig_clean)
 
-ch_hog_clean_matrix_removed <- ch_hog_clean_matrix[-c(1314),]
-ch_rad_po_clean_matrix_removed <- ch_rad_po_clean_matrix[-c(1314),]
-Sbig_clean_matrix_removed <- Sbig_clean_matrix[-c(1314),]
+ch_hog_clean_matrix_removed <- ch_hog_clean_matrix[-c(1314, 3670),]
+ch_rad_po_clean_matrix_removed <- ch_rad_po_clean_matrix[-c(1314, 3670),]
+Sbig_clean_matrix_removed <- Sbig_clean_matrix[-c(1314, 3670),]
 
 save(ch_hog_clean_matrix, file = 'ch_hog_clean_matrix.Rda')
 save(ch_rad_po_clean_matrix, file = 'ch_rad_po_clean_matrix.Rda')
@@ -117,5 +113,6 @@ write.table(ch_rad_po_clean_matrix_removed, file = 'rad_matrix_removed.csv', quo
 write.table(Sbig_clean_matrix_removed, file = 'Sbig_matrix_removed.csv', quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE, fileEncoding = "UTF-8")
 Hcomp = ch_hog_clean_matrix %*% ginv(t(ch_hog_clean_matrix)%*%ch_hog_clean_matrix)%*%t(ch_hog_clean_matrix)
 
+View(Cha_common)
 
 
