@@ -7,13 +7,13 @@ num_1 = 0
 num_2 = 0
 num_3_more = 0
 
-with open('data/char_dict2.1.txt', 'r', encoding='utf8') as fp:
-    header = fp.readline().strip().split()
+with open('data/dict_new.csv', 'r', encoding='utf8') as fp:
+    header = fp.readline().strip().split(',')
     print(header)
 
     for line in fp:
         row = {}
-        parts = line.strip().split()
+        parts = line.strip().split(',')
 
         for i, part in enumerate(parts):
             row[header[i]] = part

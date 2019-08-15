@@ -1,6 +1,7 @@
 import csv
 
 data = []
+# with open('data/dict_new.csv', 'r', encoding='utf8') as fp:
 # with open('data/char_dict2.1.txt', 'r', encoding='utf8') as fp:
 with open('data/data_sg.txt', 'r', encoding='utf8') as fp:
     header = fp.readline().strip().split()
