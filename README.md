@@ -8,7 +8,7 @@ Date:	Aug 15, 2019
 
 Our codes are in [https://github.com/MegamindHenry/morphological-processing-project](https://github.com/MegamindHenry/morphological-processing-project)
 
-All data were exclueded from github.
+All data were excluded from github.
 
 
 ###  Generating HoG matrix
