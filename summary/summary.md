@@ -1,7 +1,15 @@
+# morphological-processing-project
 Title:	Summary for Morphological Processing Project 
 Author: Xuefeng Luo
 		Jingwen Li
 Date:	Aug 15, 2019
+
+### General Instruction
+
+Our codes are in [https://github.com/MegamindHenry/morphological-processing-project](https://github.com/MegamindHenry/morphological-processing-project)
+
+All data were exclueded from github.
+
 
 ###  Generating HoG matrix
 
@@ -219,4 +227,9 @@ The results were quite interesting. For sbig matrix, the direct path was 0.6583 
 ### Time
 
 We haven't counted our time precisely, but roughly we spent 50 hours in total.
+
+### References
+
+Baayen, R. H., Chuang, Y. Y., & Blevins, J. P. (2018). Inflectional morphology with linear mappings. The mental lexicon, 13(2), 230-268.
+
 
