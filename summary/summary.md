@@ -1,5 +1,8 @@
 ### Calculate Acc
 
+Since calculating accuracy takes plenty of computation power, we split the calculation into several smaller calculations. Files were located in the acc folder. In general, we you have three matrices(hog, radical and s matrices) in csv format. You can run save_matrix.py to convert csv format into hdf5 format since reading csv into numpy matrix is to slow. After, you can run calculate.py to calculate h matrices. Finally, you can run acc.py to calculate accuracy.
+
+
 1. First, we calculate the h matrix for hog features and radical features. After calculating the h matrix, we saved it into h5 file to use it later. Below is the code:
 
 ```python
